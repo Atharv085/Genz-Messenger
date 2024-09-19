@@ -92,9 +92,6 @@ export default async function handler(
         }
 
         if (req.method === "DELETE") {
-            if (!isMessageOwner) {
-                return res.status(401).json({ error: "Unauthorized "});
-            }
             message = await db.message.update({
                 where: {
                     id: messageId as string,
